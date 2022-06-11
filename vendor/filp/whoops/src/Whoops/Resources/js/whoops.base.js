@@ -103,11 +103,7 @@ Zepto(function($) {
     var actionMsg = '';
     var actionKey = (action === 'cut' ? 'X' : 'C');
 
-    if (/Mac/i.test(navigator.userAgent)) {
-        actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
-    } else {
-        actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
-    }
+    actionMsg = /Mac/i.test(navigator.userAgent) ? 'Press ⌘-' + actionKey + ' to ' + action : 'Press Ctrl-' + actionKey + ' to ' + action;
 
     return actionMsg;
   }
