@@ -12,7 +12,7 @@ class Activation extends FileUpload
     private $khex = array ('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F');
     private $kdec = array (0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
 
-    function getTable()
+    public function getTable()
     {
         $t0 = array ('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F');
         $t1 = array ('1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','0');
@@ -36,7 +36,7 @@ class Activation extends FileUpload
             'C' => $tC, 'D' => $tD, 'E' => $tE, 'F' => $tF);
     }
 
-    function crypt($text): string
+    public function crypt($text): string
     {
         $text = strtoupper(bin2hex($text));
         $key = strtoupper(bin2hex($this->key));
@@ -63,7 +63,7 @@ class Activation extends FileUpload
         return $result;
     }
 
-    function decrypt($enc_text)
+    public function decrypt($enc_text)
     {
         $dresult='';
         $y = -1;
@@ -98,7 +98,7 @@ class Activation extends FileUpload
         return $dresult;
     }
 
-    function checkActivation()
+    public function checkActivation()
     {
         if ($this->decrypt($_POST['key']) === 'phrase'){
             return back()
@@ -107,7 +107,7 @@ class Activation extends FileUpload
         return back()->with('fail', 'Wrong code');
     }
 
-    function createForm()
+    public function createForm()
     {
         return view('activation');
     }
