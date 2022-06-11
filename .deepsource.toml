@@ -5,9 +5,5 @@ name = "shell"
 enabled = true
 
 [[analyzers]]
-name = "javascript"
-enabled = true
-
-[[analyzers]]
 name = "php"
 enabled = true
