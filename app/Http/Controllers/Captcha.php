@@ -9,7 +9,7 @@ class Captcha extends Controller
     public function createCaptcha(){
         return view('captcha');
     }
-    function captchaCheck()
+    public function captchaCheck()
     {
         if ($_POST['g-recaptcha-response'])
         {
